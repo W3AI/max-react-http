@@ -16,7 +16,14 @@ class Blog extends Component {
         axios.get('http://jsonplaceholder.typicode.com/posts')
             .then(response => {
                 // inside 'then' executes async when data comes from server
-                this.setState({posts: response.data});
+                const posts = response.data.slice(0, 4);    // to fetch first 4 posts
+                const updatedPosts = posts.map(post => {
+                    return {
+                        ...post,
+                        author: 'Steve'
+                    }
+                });
+                this.setState({posts: updatedPosts});
                 // console.log(response);
             });
     }
@@ -24,7 +31,7 @@ class Blog extends Component {
     render () {
 
         const posts = this.state.posts.map(post => {
-            return <Post key={post.id} title={post.title} />
+            return <Post key={post.id} title={post.title} author={post.author} />
         });
 
         return (
