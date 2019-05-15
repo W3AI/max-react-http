@@ -5,7 +5,7 @@ import axios from '../../axios';
 import Post from '../../components/Post/Post';
 import FullPost from '../../components/FullPost/FullPost';
 import NewPost from '../../components/NewPost/NewPost';
-import './Blog.css';
+import classes from './Blog.module.css';
 
 class Blog extends Component {
 
@@ -40,7 +40,7 @@ class Blog extends Component {
     };
 
     render () {
-        let posts = <p style={{textAlign: 'center'}} >Soemthing went wrong!</p>
+        let posts = <p style={{textAlign: 'center'}} >Something went wrong!</p>
         if (!this.state.error) {
             posts = this.state.posts.map(post => {
                 return <Post 
@@ -52,8 +52,16 @@ class Blog extends Component {
         }
 
         return (
-            <div>
-                <section className="Posts">
+            <div className={classes.Blog}>
+                <header>
+                    <nav>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/new-project">New Project</a></li>
+                        </ul>
+                    </nav>
+                </header>
+                <section className={classes.Blog}>
                     {posts}
                 </section>
                 <section>
