@@ -15,7 +15,7 @@ class Blog extends Component {
     }
 
     componentDidMount () {
-        axios.get('http://jsonplaceholder.typicode.com/posts')
+        axios.get('/posts')
             .then(response => {
                 // inside 'then' executes async when data comes from server
                 const posts = response.data.slice(0, 4);    // to fetch first 4 posts
