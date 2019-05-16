@@ -10,6 +10,7 @@ class Posts extends Component {
     }
 
     componentDidMount () {
+        console.log(this.props);
         axios.get('/posts')
             .then(response => {
                 // inside 'then' executes async when data comes from server
