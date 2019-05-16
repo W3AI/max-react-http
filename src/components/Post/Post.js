@@ -10,6 +10,6 @@ const post = (props) => (
             <div className={classes.Author}>{props.author}</div>
         </div>
     </article>
-    );
+);
 
 export default post;
