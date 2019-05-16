@@ -42,6 +42,10 @@ class Posts extends Component {
                     key={post.id} 
                     title={post.title} 
                     author={post.author}
+                    // sending all parent props with a spread operator
+                    // {...this.props}
+                    // or sending just one prop
+                    // match={this.props.match}
                     clicked={() => this.postSelectedHandler(post.id)} />
             });
         }
